@@ -1,0 +1,49 @@
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL) // Ẩn field 'meta' nếu API không có phân trang
+public class ApiResponse<T> {
+    
+    private String status;
+    private int code;
+    private T data;
+    private PageMeta meta;
+
+    // Factory method cho các API trả về data thông thường (không phân trang)
+    public static <T> ApiResponse<T> success(T data) {
+        return ApiResponse.<T>builder()
+                .status("success")
+                .code(200)
+                .data(data)
+                .build();
+    }
+
+    // Factory method cho các API GET danh sách có phân trang
+    public static <T> ApiResponse<T> success(T data, PageMeta meta) {
+        return ApiResponse.<T>builder()
+                .status("success")
+                .code(200)
+                .data(data)
+                .meta(meta)
+                .build();
+    }
+}
+
+// Class phụ trợ chứa thông tin phân trang
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class PageMeta {
+    private long totalRecords;
+    private int totalPages;
+    private int currentPage;
+    private int pageSize;
+}
