@@ -1,0 +1,4 @@
+Yêu cầu nghiệp vụ,HTTP Method,Endpoint (URL),Phân tích cấu trúc
+1. Lấy tất cả lịch hẹn của một bác sĩ,GET,/api/v1/doctors/{doctorId}/appointments,"doctors là tài nguyên cha, appointments là tài nguyên con phụ thuộc vào bác sĩ đó."
+2. Lấy một đơn thuốc cụ thể của bệnh nhân,GET,/api/v1/patients/{patientId}/prescriptions/{prescriptionId},Lấy chính xác một bản ghi tài nguyên con (prescriptionId) thuộc về một tài nguyên cha (patientId).
+3. Thêm đơn thuốc mới cho bệnh nhân,POST,/api/v1/patients/{patientId}/prescriptions,"Tạo mới một tài nguyên con. Dữ liệu chi tiết của đơn thuốc sẽ được truyền trong Request Body (Payload), còn patientId ở URL đã xác định người sở hữu."
