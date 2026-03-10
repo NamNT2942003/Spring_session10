@@ -1,0 +1,6 @@
+HTTP Method,Endpoint (URL),Mục đích nghiệp vụ
+GET,/api/v1/doctors,Lấy danh sách toàn bộ bác sĩ.
+GET,/api/v1/doctors/{id},Lấy thông tin chi tiết của một bác sĩ cụ thể theo ID.
+POST,/api/v1/doctors,Thêm mới một bác sĩ vào hệ thống.
+PUT,/api/v1/doctors/{id},Cập nhật thông tin của bác sĩ.
+DELETE,/api/v1/doctors/{id},Xóa bác sĩ khỏi hệ thống.
