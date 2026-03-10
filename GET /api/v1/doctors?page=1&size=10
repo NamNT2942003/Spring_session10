@@ -1,0 +1,23 @@
+GET /api/v1/doctors?page=1&size=10
+{
+  "status": "success",
+  "code": 200,
+  "data": [
+    {
+      "id": 101,
+      "fullName": "Trần Văn A",
+      "specialty": "Tim mạch"
+    },
+    {
+      "id": 102,
+      "fullName": "Nguyễn Thị B",
+      "specialty": "Thần kinh"
+    }
+  ],
+  "meta": {
+    "totalRecords": 150,
+    "totalPages": 15,
+    "currentPage": 1,
+    "pageSize": 10
+  }
+}
